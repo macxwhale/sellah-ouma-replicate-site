@@ -1,20 +1,41 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="bg-white shadow-md">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-theme-blue">Hon. Sellah Ouma</span>
-              <span className="text-sm text-theme-gold">County Woman Representative</span>
+              <span className="text-xl font-medium text-theme-text">Hon. Sellah Ouma</span>
+              <span className="text-xs text-theme-blue">County Woman Representative</span>
             </div>
           </Link>
           
@@ -23,6 +44,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="icon"
+              className="text-theme-text"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -30,26 +52,55 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-theme-blue hover:text-theme-lightBlue font-medium">Home</Link>
-            <Link to="/about" className="text-theme-blue hover:text-theme-lightBlue font-medium">About</Link>
-            <Link to="/initiatives" className="text-theme-blue hover:text-theme-lightBlue font-medium">Initiatives</Link>
-            <Link to="/media" className="text-theme-blue hover:text-theme-lightBlue font-medium">Media</Link>
-            <Link to="/news" className="text-theme-blue hover:text-theme-lightBlue font-medium">News</Link>
-            <Link to="/contact" className="text-theme-blue hover:text-theme-lightBlue font-medium">Contact</Link>
+          <nav className="hidden md:flex items-center space-x-8">
+            {[
+              { path: '/', label: 'Home' },
+              { path: '/about', label: 'About' },
+              { path: '/initiatives', label: 'Initiatives' },
+              { path: '/media', label: 'Media' },
+              { path: '/news', label: 'News' },
+              { path: '/contact', label: 'Contact' }
+            ].map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path} 
+                className={`text-sm transition-colors ${
+                  location.pathname === item.path 
+                    ? 'text-theme-blue font-medium' 
+                    : 'text-theme-text hover:text-theme-blue'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 animate-fade-in">
-            <nav className="flex flex-col space-y-4 py-4">
-              <Link to="/" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>Home</Link>
-              <Link to="/about" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
-              <Link to="/initiatives" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>Initiatives</Link>
-              <Link to="/media" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>Media</Link>
-              <Link to="/news" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>News</Link>
-              <Link to="/contact" className="text-theme-blue hover:text-theme-lightBlue font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <div className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 animate-fade-in">
+            <nav className="flex flex-col space-y-4 py-2">
+              {[
+                { path: '/', label: 'Home' },
+                { path: '/about', label: 'About' },
+                { path: '/initiatives', label: 'Initiatives' },
+                { path: '/media', label: 'Media' },
+                { path: '/news', label: 'News' },
+                { path: '/contact', label: 'Contact' }
+              ].map((item) => (
+                <Link 
+                  key={item.path}
+                  to={item.path} 
+                  className={`text-sm transition-colors ${
+                    location.pathname === item.path 
+                      ? 'text-theme-blue font-medium' 
+                      : 'text-theme-text hover:text-theme-blue'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
           </div>
         )}

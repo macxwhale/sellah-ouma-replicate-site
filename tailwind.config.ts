@@ -67,18 +67,24 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for Sellah Ouma site
+				// Apple-inspired colors
 				theme: {
-					blue: '#0e3e72',
-					gold: '#d4af37',
-					lightBlue: '#2c7fb8',
-					darkBlue: '#0a2b4e'
+					blue: '#0066CC', // Apple blue
+					darkBlue: '#003366',
+					lightBlue: '#0077CC',
+					gold: '#A1A1A6', // Silver/aluminum color for accents
+					gray: '#F5F5F7', // Light gray background
+					text: '#1D1D1F', // Dark text color
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				sans: ['"SF Pro Display"', '"SF Pro"', '"Helvetica Neue"', 'system-ui', 'sans-serif'],
+				body: ['"SF Pro Text"', 'system-ui', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -106,12 +112,23 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'blur-in': {
+					'0%': {
+						opacity: '0',
+						filter: 'blur(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						filter: 'blur(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'blur-in': 'blur-in 0.8s ease-out'
 			}
 		}
 	},

@@ -6,32 +6,32 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 210 100% 25%;  /* Deep blue */
+    --primary: 206 100% 40%; /* Apple blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 43 77% 52%; /* Gold */
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 5% 65%; /* Apple gray-silver */
+    --secondary-foreground: 240 5% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
   }
@@ -41,31 +41,50 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.015em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-medium;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-theme-blue text-white hover:bg-theme-darkBlue transition-colors py-2 px-6 rounded font-medium;
+    @apply bg-theme-blue text-white hover:bg-theme-lightBlue transition-colors py-2 px-6 rounded-full font-medium text-sm tracking-wide;
   }
 
   .btn-secondary {
-    @apply bg-theme-gold text-white hover:bg-opacity-90 transition-colors py-2 px-6 rounded font-medium;
+    @apply bg-white text-theme-text hover:bg-gray-100 transition-colors py-2 px-6 rounded-full font-medium text-sm tracking-wide shadow-sm;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-theme-blue mb-6;
+    @apply text-3xl md:text-4xl font-medium text-theme-text mb-4 tracking-tight;
   }
   
   .section-subtitle {
-    @apply text-xl md:text-2xl font-semibold text-theme-blue mb-4;
+    @apply text-xl md:text-2xl font-medium text-theme-text mb-3 tracking-tight;
   }
 
   .content-container {
-    @apply container mx-auto py-12 px-4 md:px-6;
+    @apply container mx-auto py-24 px-4 md:px-6;
+  }
+  
+  /* Apple-style link button */
+  .apple-link {
+    @apply text-theme-blue font-medium inline-flex items-center hover:underline;
+  }
+  
+  /* Apple-style card */
+  .apple-card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow;
   }
 }
