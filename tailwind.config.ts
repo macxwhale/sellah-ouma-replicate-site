@@ -67,14 +67,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Kalon of Mercy inspired colors
+				// Charifund theme colors
 				theme: {
-					blue: '#03588C', // Primary blue
-					lightBlue: '#0F7AB0',
-					darkBlue: '#023E66',
-					gold: '#F1D17A', // Gold accent
-					red: '#BF3737', // For highlights
-					gray: '#F4F4F4', // Light gray background
+					orange: '#F27C21', // Primary orange
+					darkOrange: '#D26212',
+					blue: '#1B3E78', // Dark blue
+					darkBlue: '#102750',
+					lightBlue: '#3A5FA0',
+					gray: '#F8F9FA', // Light gray background
 					text: '#333333', // Dark text color
 					lightText: '#666666', // Secondary text
 				}
@@ -85,9 +85,9 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
-				heading: ['"Playfair Display"', 'serif'],
-				body: ['"Open Sans"', 'system-ui', 'sans-serif']
+				sans: ['"Poppins"', 'system-ui', 'sans-serif'],
+				heading: ['"Poppins"', 'system-ui', 'sans-serif'],
+				body: ['"Poppins"', 'system-ui', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {

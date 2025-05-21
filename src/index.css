@@ -14,11 +14,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 210 96% 28%; /* Kalon blue */
+    --primary: 18 92% 54%; /* Charifund orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 44 83% 71%; /* Kalon gold */
-    --secondary-foreground: 240 5% 10%;
+    --secondary: 220 70% 25%; /* Charifund blue */
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 240 5% 96%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -43,7 +43,8 @@
   }
   
   html {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -52,39 +53,73 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium;
+    @apply font-heading font-bold;
     letter-spacing: -0.025em;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-theme-blue text-white hover:bg-theme-lightBlue transition-colors py-3 px-8 rounded-md font-medium text-sm tracking-wide shadow-sm;
+    @apply bg-theme-orange text-white hover:bg-theme-darkOrange transition-colors py-3 px-8 rounded-full font-medium text-sm tracking-wide shadow-sm;
   }
 
   .btn-secondary {
-    @apply bg-theme-gold text-theme-blue hover:brightness-95 transition-colors py-3 px-8 rounded-md font-medium text-sm tracking-wide shadow-sm;
+    @apply bg-theme-blue text-white hover:brightness-110 transition-colors py-3 px-8 rounded-full font-medium text-sm tracking-wide shadow-sm;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-heading font-bold text-theme-blue mb-4 tracking-tight;
+    @apply text-3xl md:text-4xl font-heading font-bold mb-4 tracking-tight;
   }
   
   .section-subtitle {
-    @apply text-xl md:text-2xl font-heading font-medium text-theme-blue mb-3 tracking-tight;
+    @apply text-xl md:text-2xl font-heading font-medium mb-3 tracking-tight;
   }
 
   .content-container {
     @apply container mx-auto py-16 px-4 md:px-6;
   }
   
-  /* Kalon style link button */
-  .kalon-link {
-    @apply text-theme-blue font-medium inline-flex items-center hover:underline;
+  /* Charifund style link button */
+  .charifund-link {
+    @apply text-theme-orange font-medium inline-flex items-center hover:text-theme-darkOrange transition-colors;
   }
   
-  /* Kalon style card */
-  .kalon-card {
+  /* Charifund style card */
+  .charifund-card {
     @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100;
   }
+
+  /* Charifund style section */
+  .charifund-section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Charifund style section title */
+  .charifund-title {
+    @apply relative inline-block mb-6;
+  }
+  
+  .charifund-title::after {
+    content: "";
+    @apply block w-1/2 h-1 bg-theme-orange mt-2;
+  }
+  
+  .charifund-title-center {
+    @apply relative inline-block mb-6 mx-auto text-center;
+  }
+  
+  .charifund-title-center::after {
+    content: "";
+    @apply block w-1/2 h-1 bg-theme-orange mt-2 mx-auto;
+  }
+
+  /* Donation progress bar */
+  .donation-progress {
+    @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .donation-progress-bar {
+    @apply h-full bg-theme-orange rounded-full;
+  }
 }
+
