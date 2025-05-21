@@ -67,14 +67,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Apple-inspired colors
+				// Kalon of Mercy inspired colors
 				theme: {
-					blue: '#0066CC', // Apple blue
-					darkBlue: '#003366',
-					lightBlue: '#0077CC',
-					gold: '#A1A1A6', // Silver/aluminum color for accents
-					gray: '#F5F5F7', // Light gray background
-					text: '#1D1D1F', // Dark text color
+					blue: '#03588C', // Primary blue
+					lightBlue: '#0F7AB0',
+					darkBlue: '#023E66',
+					gold: '#F1D17A', // Gold accent
+					red: '#BF3737', // For highlights
+					gray: '#F4F4F4', // Light gray background
+					text: '#333333', // Dark text color
+					lightText: '#666666', // Secondary text
 				}
 			},
 			borderRadius: {
@@ -83,8 +85,9 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['"SF Pro Display"', '"SF Pro"', '"Helvetica Neue"', 'system-ui', 'sans-serif'],
-				body: ['"SF Pro Text"', 'system-ui', 'sans-serif']
+				sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
+				heading: ['"Playfair Display"', 'serif'],
+				body: ['"Open Sans"', 'system-ui', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {

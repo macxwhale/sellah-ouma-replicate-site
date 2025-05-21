@@ -14,10 +14,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 206 100% 40%; /* Apple blue */
+    --primary: 210 96% 28%; /* Kalon blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 65%; /* Apple gray-silver */
+    --secondary: 44 83% 71%; /* Kalon gold */
     --secondary-foreground: 240 5% 10%;
 
     --muted: 240 5% 96%;
@@ -43,7 +43,7 @@
   }
   
   html {
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   body {
@@ -52,39 +52,39 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-medium;
+    @apply font-heading font-medium;
     letter-spacing: -0.025em;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-theme-blue text-white hover:bg-theme-lightBlue transition-colors py-2 px-6 rounded-full font-medium text-sm tracking-wide;
+    @apply bg-theme-blue text-white hover:bg-theme-lightBlue transition-colors py-3 px-8 rounded-md font-medium text-sm tracking-wide shadow-sm;
   }
 
   .btn-secondary {
-    @apply bg-white text-theme-text hover:bg-gray-100 transition-colors py-2 px-6 rounded-full font-medium text-sm tracking-wide shadow-sm;
+    @apply bg-theme-gold text-theme-blue hover:brightness-95 transition-colors py-3 px-8 rounded-md font-medium text-sm tracking-wide shadow-sm;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-medium text-theme-text mb-4 tracking-tight;
+    @apply text-3xl md:text-4xl font-heading font-bold text-theme-blue mb-4 tracking-tight;
   }
   
   .section-subtitle {
-    @apply text-xl md:text-2xl font-medium text-theme-text mb-3 tracking-tight;
+    @apply text-xl md:text-2xl font-heading font-medium text-theme-blue mb-3 tracking-tight;
   }
 
   .content-container {
-    @apply container mx-auto py-24 px-4 md:px-6;
+    @apply container mx-auto py-16 px-4 md:px-6;
   }
   
-  /* Apple-style link button */
-  .apple-link {
+  /* Kalon style link button */
+  .kalon-link {
     @apply text-theme-blue font-medium inline-flex items-center hover:underline;
   }
   
-  /* Apple-style card */
-  .apple-card {
-    @apply bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow;
+  /* Kalon style card */
+  .kalon-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100;
   }
 }
