@@ -57,7 +57,7 @@ const HeroSection = ({
               )}
               
               {secondaryCta && (
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="white-outline" size="lg">
                   <Link to={secondaryCta.link} className="group">
                     <span>{secondaryCta.text}</span>
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
