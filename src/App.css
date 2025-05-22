@@ -13,29 +13,4 @@ main {
   width: 100%;
 }
 
-/* Fix for white sections - ensure background colors are applied properly */
-section {
-  background-color: var(--background);
-}
-
-/* Custom section styles */
-.section-light {
-  background-color: hsl(var(--background));
-}
-
-.section-primary {
-  background-color: hsl(var(--primary) / 0.05);
-}
-
-.section-accent {
-  background-color: hsl(var(--accent));
-}
-
-/* Animation classes */
-.animate-hover-scale {
-  transition: transform 0.3s ease;
-}
-
-.animate-hover-scale:hover {
-  transform: scale(1.02);
-}
+/* Reserved for any custom classes that can't be achieved with Tailwind */
